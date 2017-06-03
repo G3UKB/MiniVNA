@@ -23,7 +23,7 @@
 
 import os, sys
 import subprocess
-
+from defs import *
 
 """
 Perform a sweep using the command line utility from vna/j.
@@ -31,11 +31,6 @@ The sweep has a start and stop frequency and number of steps.
 The sweep results are written to a file (no option).
 The file is parsed and a condensed result set passed back to the caller.
 """
-
-CAL_FILE = 'REFL_miniVNA Tiny.cal'
-SCAN_MODE = 'REFL'
-EXPORTS = 'xls'
-JAR = 'E:\\RadioResources\\VNA\\vnaJ-hl.3.1.5.jar'
 
 def sweep(startFreq, stopFreq, steps):
     
@@ -65,11 +60,12 @@ def sweep(startFreq, stopFreq, steps):
         
         proc = subprocess.Popen(params)
         proc.wait()
-        
         print('Scan complete')
+        return True
         
     except Exception as e:
         print('Exception %s' % (str(e)))
+        return False
 
 # Entry point       
 if __name__ == '__main__':
