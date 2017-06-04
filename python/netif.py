@@ -21,6 +21,11 @@
 #     bob@bobcowdery.plus.com
 #
 
+import os, sys
+import threading
+import socket
+from defs import *
+
 """
 Interface to the MiniVNA Tiny application:
 
@@ -33,4 +38,36 @@ Commands are UDP:
 
 """
 
+class NetIF(threading.Thread):
+    
+    def __init__(self, callback):
+        """
+        Constructor
+        
+        Arguments:
+            callback    --  callback here when data arrives
+            
+        """
 
+        super(NetIF, self).__init__()
+        
+        self.__sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.__sock.bind((EVNT_IP, EVNT_PORT))
+        self.__sock.settimeout(3)
+        
+        self.__terminate = False
+    
+    def terminate(self):
+        """ Terminate thread """
+        
+        self.__terminate = True
+        
+    def run(self):
+        # Listen for requests
+        while not self.__terminate:
+            try:
+                data, addr = self.__sock.recvfrom(100)
+                self.__callback(data)
+            except socket.timeout:
+                continue
+            

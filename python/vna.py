@@ -26,47 +26,62 @@ import subprocess
 from defs import *
 
 """
-Perform a sweep using the command line utility from vna/j.
-The sweep has a start and stop frequency and number of steps.
-The sweep results are written to a file (no option).
-The file is parsed and a condensed result set passed back to the caller.
+    Perform a sweep using the command line utility from vna/j.
+    The sweep has a start and stop frequency and number of steps.
+    The sweep results are written to a file (no option).
+    The file is parsed and a condensed result set passed back to the caller.
 """
 
-def sweep(startFreq, stopFreq, steps):
+class VNA:
     
-    """
-        Perform a sweep
+    def fres(self):
         
-        Args:
-            startFreq   --  start frequency in Hz
-            stopFreq    --  stop Freq in Hz (> startFreq + 1KHz)
-            steps       --  steps between start and stop (minimum 2 gives one reading at each freq)
+        pass
+    
+    def fswr(self):
+        
+        pass
+    
+    def scan(self):
+        
+        pass
+    
+    def __sweep(self, startFreq, stopFreq, steps):
+        
+        """
+            Perform a sweep
             
-    """
-    
-    try:
-        # Assemble parameters
-        params = []
-        params.append('java')
-        params.append('-Dfstart=%s' % (startFreq))
-        params.append('-Dfstop=%s' % (stopFreq))
-        params.append('-Dfsteps=%s' % (steps))
-        params.append('-Dcalfile=%s' % (CAL_FILE))
-        params.append('-Dscanmode=%s' % (SCAN_MODE))
-        params.append('-Dexports=%s' % (EXPORTS))
-        params.append('-jar')
-        params.append('%s' % (JAR))
-        print(params)
+            Args:
+                startFreq   --  start frequency in Hz
+                stopFreq    --  stop Freq in Hz (> startFreq + 1KHz)
+                steps       --  steps between start and stop (minimum 2 gives one reading at each freq)
+                
+        """
         
-        proc = subprocess.Popen(params)
-        proc.wait()
-        print('Scan complete')
-        return True
-        
-    except Exception as e:
-        print('Exception %s' % (str(e)))
-        return False
+        try:
+            # Assemble parameters
+            params = []
+            params.append('java')
+            params.append('-Dfstart=%s' % (startFreq))
+            params.append('-Dfstop=%s' % (stopFreq))
+            params.append('-Dfsteps=%s' % (steps))
+            params.append('-Dcalfile=%s' % (CAL_FILE))
+            params.append('-Dscanmode=%s' % (SCAN_MODE))
+            params.append('-Dexports=%s' % (EXPORTS))
+            params.append('-jar')
+            params.append('%s' % (JAR))
+            
+            proc = subprocess.Popen(params)
+            proc.wait()
+            print('Scan complete')
+            return True
+            
+        except Exception as e:
+            print('Exception %s' % (str(e)))
+            return False
 
-# Entry point       
+# Testing     
 if __name__ == '__main__':
-    sweep(sys.argv[1], sys.argv[2], sys.argv[3])             
+    vna = VNA()
+    vna.sweep(sys.argv[1], sys.argv[2], sys.argv[3])
+    

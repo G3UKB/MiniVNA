@@ -21,3 +21,27 @@
 #     bob@bobcowdery.plus.com
 #
 
+import os, sys
+from defs import *
+
+"""
+Decode data set written to the output file by the vna/j command line program.
+
+"""
+
+class Decode:
+    
+    def __init__(self):
+        pass
+    
+    def fres(self):
+        
+        pass
+    
+    def fswr(self):
+        
+        pass
+    
+    def scan(self):
+        
+        pass

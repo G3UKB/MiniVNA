@@ -21,6 +21,15 @@
 #     bob@bobcowdery.plus.com
 #
 
+# Net interface defs
+RQST_IP = '127.0.0.1'
+RQST_PORT = 10002
+
+# Types
+RQST_FRES = 'fres'
+RQST_FSWR = 'fswr'
+RQST_SCAN = 'scan'
+
 # Scanner defs
 CAL_FILE = 'REFL_miniVNA Tiny.cal'
 SCAN_MODE = 'REFL'
