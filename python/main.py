@@ -79,17 +79,20 @@ class VNAMain:
                 if len(request) != 3:
                     print('Request %s requires 2 parameters, received %d' % (type, len(request)-1))
                     return
-                self.__netif.response(self.__decoder.fres(self.__vna.fres(request[1], request[2])))
+                if self.__vna.fres(request[1], request[2]):
+                    self.__netif.response(self.__decoder.fres())
             elif type == RQST_FSWR:
                 if len(request) != 2:
                     print('Request %s requires 1 parameters, received %d' % (type, len(request)-1))
-                    return     
-                self.__netif.response(self.__decoder.fswr(self.__vna.fswr(request[1])))
+                    return
+                if self.__vna.fswr(request[1]):
+                    self.__netif.response(self.__decoder.fswr())
             elif type == RQST_SCAN:
                 if len(request) != 3:
                     print('Request %s requires 2 parameters, received %d' % (type, len(request)-1))
-                    return     
-                self.__netif.response(self.__decoder.scan(self.__vna.scan(request[1], request[2])))
+                    return
+                if self.__vna.scan(request[1], request[2]):
+                    self.__netif.response(self.__decoder.scan())
             else:
                 print('Unknown request type %s!' % (type))
             

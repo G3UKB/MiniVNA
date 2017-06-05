@@ -55,18 +55,36 @@ class NetIF(threading.Thread):
         self.__sock.bind((EVNT_IP, EVNT_PORT))
         self.__sock.settimeout(3)
         
+        self.__address = None
         self.__terminate = False
     
     def terminate(self):
         """ Terminate thread """
         
         self.__terminate = True
+    
+    def response(self, data):
+        """
+        Send response data
         
+        Arguments:
+            data    --  bytestream to send
+        
+        """
+        
+        if self.__address != None:
+            try:
+                self.__sock.sendto(data, self.__address)
+                
+            except Exception as e:
+                print('Exception on socket send %s' % (str(e)))
+                
     def run(self):
-        # Listen for requests
+        """ Listen for requests """
+        
         while not self.__terminate:
             try:
-                data, addr = self.__sock.recvfrom(100)
+                data, self.__address = self.__sock.recvfrom(100)
                 self.__callback(data)
             except socket.timeout:
                 continue

@@ -34,17 +34,51 @@ from defs import *
 
 class VNA:
     
-    def fres(self):
+    def fres(self, startFreq, stopFreq):
+        """
+        Sweep between start and end frequencies.
+        Target is to determine resonant frequency.
         
-        pass
+        Arguments:
+            startFreq   --  start freq in KHz
+            stopFreq    --  stop freq in KHz
+        """
+        
+        if (stopFreq - startFreq) >= 1:
+            # Good to go
+            # Step every 10KHz
+            steps = (stopFreq - startFreq)/10
+            return self.__sweep(startFreq, stopFreq, steps)
     
-    def fswr(self):
+    def fswr(self, freq):
         
-        pass
+        """
+        Do spot frequency
+        Target is to return SWR at the given frequency
+        
+        Arguments:
+            freq   --  freq in KHz
+        """
+        
+        # Minimum separation is 1KHz and minimum steps is 2
+        return self.__sweep(freq, freq + 1, 2)
     
     def scan(self):
         
-        pass
+        """
+        Sweep between start and end frequencies.
+        All pairs will be returned.
+        
+        Arguments:
+            startFreq   --  start freq in KHz
+            stopFreq    --  stop freq in KHz
+        """
+        
+        if (stopFreq - startFreq) >= 1:
+            # Good to go
+            # Step every 10KHz
+            steps = (stopFreq - startFreq)/10
+            return self.__sweep(startFreq, stopFreq, steps)
     
     def __sweep(self, startFreq, stopFreq, steps):
         
