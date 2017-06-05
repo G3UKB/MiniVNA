@@ -36,3 +36,8 @@ SCAN_MODE = 'REFL'
 EXPORTS = 'csv'
 JAR = 'E:\\RadioResources\\VNA\\vnaJ-hl.3.1.5.jar'
 
+# Decoder defs
+EXPORT_PATH = 'C:\\Users\\User\\vnaJ.3.1\\export'
+DEC_FREQ = 0
+DEC_SWR = 4
+
