@@ -52,9 +52,10 @@ class NetIF(threading.Thread):
         """
 
         super(NetIF, self).__init__()
+        self.__callback = callback
         
         self.__sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.__sock.bind((EVNT_IP, EVNT_PORT))
+        self.__sock.bind((RQST_IP, RQST_PORT))
         self.__sock.settimeout(3)
         
         self.__address = None

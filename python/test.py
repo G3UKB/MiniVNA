@@ -5,6 +5,4 @@ import socket
 import pickle
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.sendto(('127.0.0.1', 10002), pickle.dumps(['fres', 1800, 1850])
-
-
+sock.sendto(pickle.dumps(['fres', 1800, 1850]), ('127.0.0.1', 10002))
