@@ -24,6 +24,8 @@
 import os, sys
 import threading
 import socket
+import pickle
+
 from defs import *
 
 """
@@ -74,7 +76,8 @@ class NetIF(threading.Thread):
         
         if self.__address != None:
             try:
-                self.__sock.sendto(data, self.__address)
+                pickledData = pickle.dumps(data)
+                self.__sock.sendto(pickledData, self.__address)
                 
             except Exception as e:
                 print('Exception on socket send %s' % (str(e)))
