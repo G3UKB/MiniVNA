@@ -47,6 +47,7 @@ class Decode:
         if r:
             # Parse result set
             for line in resultSet:
+                print (line)
                 if first:
                     # Skip the headings line
                     first = False
@@ -56,6 +57,7 @@ class Decode:
                         swr = temp[DEC_SWR]
                         resonantFreq = temp[DEC_FREQ]
                     else:
+                        print(temp[DEC_SWR], swr)
                         if temp[DEC_SWR] < swr:
                             swr = temp[DEC_SWR]
                             resonantFreq = temp[DEC_FREQ]
