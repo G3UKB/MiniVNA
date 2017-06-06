@@ -58,7 +58,7 @@ class Decode:
                         resonantFreq = temp[DEC_FREQ]
                     else:
                         print(temp[DEC_SWR], swr)
-                        if temp[DEC_SWR] < swr:
+                        if float(temp[DEC_SWR]) < float(swr):
                             swr = temp[DEC_SWR]
                             resonantFreq = temp[DEC_FREQ]
 
