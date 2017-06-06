@@ -106,7 +106,7 @@ class Decode:
             f = open(newest)
             data = f.readlines()
             f.close()
-            os.remove(newest)
+            #os.remove(newest)
             return True, data
         except ValueError:
             return False, None
