@@ -70,7 +70,8 @@ class Decode:
         results = []
         if r:
             # We should only have 2 results of which the first is the required frequency
-            results.append(resultset[1][DEC_FREQ], resultset[1][DEC_SWR])
+            temp = resultSet[1].split(',')
+            results.append((temp[DEC_FREQ], temp[DEC_SWR]))
         return results
     
     def scan(self):

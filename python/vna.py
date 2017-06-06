@@ -47,7 +47,7 @@ class VNA:
         if (stopFreq - startFreq) >= 1:
             # Good to go
             # Step every 10KHz
-            steps = (stopFreq - startFreq)/10
+            steps = int((stopFreq - startFreq)/10)
             return self.__sweep(startFreq, stopFreq, steps)
     
     def fswr(self, freq):
@@ -63,7 +63,7 @@ class VNA:
         # Minimum separation is 1KHz and minimum steps is 2
         return self.__sweep(freq, freq + 1, 2)
     
-    def scan(self):
+    def scan(self, startFreq, stopFreq):
         
         """
         Sweep between start and end frequencies.
@@ -77,7 +77,7 @@ class VNA:
         if (stopFreq - startFreq) >= 1:
             # Good to go
             # Step every 10KHz
-            steps = (stopFreq - startFreq)/10
+            steps = int((stopFreq - startFreq)/10)
             return self.__sweep(startFreq, stopFreq, steps)
     
     def __sweep(self, startFreq, stopFreq, steps):
@@ -86,8 +86,8 @@ class VNA:
             Perform a sweep
             
             Args:
-                startFreq   --  start frequency in Hz
-                stopFreq    --  stop Freq in Hz (> startFreq + 1KHz)
+                startFreq   --  start frequency in KHz
+                stopFreq    --  stop Freq in KHz (> startFreq + 1KHz)
                 steps       --  steps between start and stop (minimum 2 gives one reading at each freq)
                 
         """
@@ -96,8 +96,8 @@ class VNA:
             # Assemble parameters
             params = []
             params.append('java')
-            params.append('-Dfstart=%s' % (startFreq))
-            params.append('-Dfstop=%s' % (stopFreq))
+            params.append('-Dfstart=%s' % (startFreq*1000))
+            params.append('-Dfstop=%s' % (stopFreq*1000))
             params.append('-Dfsteps=%s' % (steps))
             params.append('-Dcalfile=%s' % (CAL_FILE))
             params.append('-Dscanmode=%s' % (SCAN_MODE))
