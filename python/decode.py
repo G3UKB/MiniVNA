@@ -97,7 +97,10 @@ class Decode:
         try:
             newest = max(glob.iglob(EXPORT_PATH + '/*.csv'), key=os.path.getctime)
             f = open(newest)
-            return True, f.readlines()
+            data = f.readlines()
+            f.close()
+            os.remove(newest)
+            return True, data
         except ValueError:
             return False, None
                    
