@@ -97,7 +97,7 @@ class VNA:
             if sys.platform == 'win32':
                 exports = WIN_EXPORTS
                 jar = WIN_JAR
-            elif sys.platform == 'linux2':
+            elif sys.platform == 'linux':
                 exports = LIN_EXPORTS
                 jar = LIN_JAR
             else:
