@@ -95,10 +95,10 @@ class VNA:
         try:
             # Assemble parameters
             if sys.platform == 'win32':
-                exports = WIN_EXPORTS
+                exports = WIN_EXPORT_PATH
                 jar = WIN_JAR
             elif sys.platform == 'linux':
-                exports = LIN_EXPORTS
+                exports = LIN_EXPORT_PATH
                 jar = LIN_JAR
             else:
                 print('Unsupported platform %s' % (sys.platform))
@@ -110,7 +110,7 @@ class VNA:
             params.append('-Dfsteps=%s' % (steps))
             params.append('-Dcalfile=%s' % (CAL_FILE))
             params.append('-Dscanmode=%s' % (SCAN_MODE))
-            params.append('-Dexports=%s' % (exports))
+            params.append('-Dexports=%s' % (EXPORTS))
             params.append('-jar')
             params.append('%s' % (jar))
             

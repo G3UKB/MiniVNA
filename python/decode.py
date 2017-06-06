@@ -95,7 +95,14 @@ class Decode:
         """ Read the result file """
         
         try:
-            newest = max(glob.iglob(EXPORT_PATH + '/*.csv'), key=os.path.getctime)
+            if sys.platform == 'win32':
+                exportPath = WIN_EXPORT_PATH
+            elif sys.platform == 'linux':
+                exportPath = LIN_EXPORT_PATH
+            else:
+                print('Unsupported platform %s' % (sys.platform))
+                return
+            newest = max(glob.iglob(exportPath + '/*.csv'), key=os.path.getctime)
             f = open(newest)
             data = f.readlines()
             f.close()
