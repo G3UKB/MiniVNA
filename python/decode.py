@@ -47,7 +47,6 @@ class Decode:
         if r:
             # Parse result set
             for line in resultSet:
-                print (line)
                 if first:
                     # Skip the headings line
                     first = False
@@ -57,7 +56,6 @@ class Decode:
                         swr = temp[DEC_SWR]
                         resonantFreq = temp[DEC_FREQ]
                     else:
-                        print(temp[DEC_SWR], swr)
                         if float(temp[DEC_SWR]) < float(swr):
                             swr = temp[DEC_SWR]
                             resonantFreq = temp[DEC_FREQ]
@@ -108,7 +106,11 @@ class Decode:
             f = open(newest)
             data = f.readlines()
             f.close()
-            #os.remove(newest)
+            # Remove old files
+            files = glob.glob(exportPath + '/*.csv')
+            for file in files:
+                if file != newest:
+                    os.remove(file)
             return True, data
         except ValueError:
             return False, None
