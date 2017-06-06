@@ -94,6 +94,15 @@ class VNA:
         
         try:
             # Assemble parameters
+            if sys.platform == 'win32':
+                exports = WIN_EXPORTS
+                jar = WIN_JAR
+            elif sys.platform == 'linux2':
+                exports = LIN_EXPORTS
+                jar = LIN_JAR
+            else:
+                print('Unsupported platform %s' % (sys.platform))
+                return
             params = []
             params.append('java')
             params.append('-Dfstart=%s' % (startFreq*1000))
@@ -101,9 +110,9 @@ class VNA:
             params.append('-Dfsteps=%s' % (steps))
             params.append('-Dcalfile=%s' % (CAL_FILE))
             params.append('-Dscanmode=%s' % (SCAN_MODE))
-            params.append('-Dexports=%s' % (EXPORTS))
+            params.append('-Dexports=%s' % (exports))
             params.append('-jar')
-            params.append('%s' % (JAR))
+            params.append('%s' % (jar))
             
             proc = subprocess.Popen(params)
             proc.wait()
