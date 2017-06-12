@@ -22,7 +22,7 @@
 #
 
 # Net interface defs
-RQST_IP = '127.0.0.1'
+RQST_IP = ''
 RQST_PORT = 10002
 
 # Types
