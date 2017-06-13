@@ -44,10 +44,10 @@ class VNA:
             stopFreq    --  stop freq in Hz
         """
         
-        if (stopFreq - startFreq) >= 2000:
+        if (stopFreq - startFreq) >= 1000:
             # Good to go
-            # Step every 1KHz
-            steps = int((stopFreq - startFreq)/1000)
+            # Step every 250Hz
+            steps = int((stopFreq - startFreq)/250)
             return self.__sweep(startFreq, stopFreq, steps)
     
     def fswr(self, freq):
