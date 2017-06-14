@@ -54,6 +54,7 @@ class VNAMain:
         
     def mainLoop(self):
         
+        print('MiniVNA-Tiny remote interface running ...')
         try:
             # Main loop for ever
             while True:
