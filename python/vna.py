@@ -129,5 +129,5 @@ if __name__ == '__main__':
     startf = int(sys.argv[1])
     stopf = int(sys.argv[2])
     vna.fres(startf, stopf)
-    vna.fvswr(startf)
+    vna.fswr(startf)
     
