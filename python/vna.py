@@ -126,6 +126,8 @@ class VNA:
 # Testing     
 if __name__ == '__main__':
     vna = VNA()
-    vna.fres(sys.argv[1], sys.argv[2])
-    vna.fvswr(sys.argv[1])
+    startf = int(sys.argv[1])
+    stopf = int(sys.argv[2])
+    vna.fres(startf, stopf)
+    vna.fvswr(startf)
     
