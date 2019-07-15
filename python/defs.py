@@ -39,7 +39,7 @@ CAL_FILE = '/home/pi/vnaJ.3.2/calibration/REFL_miniVNA Tiny.cal'
 SCAN_MODE = 'REFL'
 EXPORTS = 'csv'
 EXPORT_FILENAME = 'VNA_EXPORTS.csv'
-JAR = '/home/pi/Projects/MiniVNA/VNAJ/vnaJ-hl.3.1.5.jar'
+JAR = '/home/pi/Projects/MiniVNA/VNAJ/vnaJ-hl.3.2.10.jar'
 
 # Decoder defs
 EXPORT_PATH = '/home/pi/vnaJ.3.2/export'
