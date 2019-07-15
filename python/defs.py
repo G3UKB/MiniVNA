@@ -30,16 +30,19 @@ RQST_FRES = 'fres'
 RQST_FSWR = 'fswr'
 RQST_SCAN = 'scan'
 
+# Driver
+DRIVER_ID = 1
+DRIVER_PORT = 'ttyUSB0'
+
 # Scanner defs
-CAL_FILE = 'REFL_miniVNA Tiny.cal'
+CAL_FILE = '/home/pi/vnaJ.3.2/calibration/REFL_miniVNA Tiny.cal'
 SCAN_MODE = 'REFL'
 EXPORTS = 'csv'
-WIN_JAR = 'E:\\Projects\\MiniVNA\\VNAJ\\vnaJ-hl.3.2.10.jar'
-LIN_JAR = '/home/pi/Projects/MiniVNA/VNAJ/vnaJ-hl.3.2.10.jar'
+EXPORT_FILENAME = 'VNA_EXPORTS.csv'
+JAR = '/home/pi/Projects/MiniVNA/VNAJ/vnaJ-hl.3.2.10.jar'
 
 # Decoder defs
-WIN_EXPORT_PATH = 'C:\\Users\\User\\VNAJ\\export'
-LIN_EXPORT_PATH = '/home/pi/VNAJ/export'
+EXPORT_PATH = '/home/pi/vnaJ.3.2/export'
 DEC_FREQ = 0
 DEC_SWR = 4
 

@@ -93,27 +93,20 @@ class VNA:
         """
         
         try:
-            # Assemble parameters
-            if sys.platform == 'win32':
-                exports = WIN_EXPORT_PATH
-                jar = WIN_JAR
-            elif sys.platform == 'linux':
-                exports = LIN_EXPORT_PATH
-                jar = LIN_JAR
-            else:
-                print('Unsupported platform %s' % (sys.platform))
-                return
             params = []
             params.append('java')
             params.append('-Dfstart=%s' % (startFreq))
             params.append('-Dfstop=%s' % (stopFreq))
             params.append('-Dfsteps=%s' % (steps))
+            params.append('-DdriverId=%d' % (DRIVER_ID))
+            params.append('-DdriverPort=%s' % (DRIVER_PORT))
             params.append('-Dcalfile=%s' % (CAL_FILE))
             params.append('-Dscanmode=%s' % (SCAN_MODE))
             params.append('-Dexports=%s' % (EXPORTS))
+            params.append('-DexportDirectory=%s' % (EXPORT_PATH))
+            params.append('-DexportFilename=%s' % (EXPORT_FILENAME))
             params.append('-jar')
             params.append('%s' % (jar))
-            
             proc = subprocess.Popen(params)
             proc.wait()
             print('Scan complete')
