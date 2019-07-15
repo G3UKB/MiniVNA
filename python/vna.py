@@ -106,7 +106,7 @@ class VNA:
             params.append('-DexportDirectory=%s' % (EXPORT_PATH))
             params.append('-DexportFilename=%s' % (EXPORT_FILENAME))
             params.append('-jar')
-            params.append('%s' % (jar))
+            params.append('%s' % (JAR))
             proc = subprocess.Popen(params)
             proc.wait()
             print('Scan complete')
