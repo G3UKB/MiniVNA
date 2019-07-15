@@ -34,12 +34,12 @@ RQST_SCAN = 'scan'
 CAL_FILE = 'REFL_miniVNA Tiny.cal'
 SCAN_MODE = 'REFL'
 EXPORTS = 'csv'
-WIN_JAR = 'E:\\RadioResources\\VNA\\vnaJ-hl.3.1.5.jar'
-LIN_JAR = '/home/pi/VNA/vnaJ-hl.3.1.5.jar'
+WIN_JAR = 'E:\\Projects\\MiniVNA\\VNAJ\\vnaJ-hl.3.2.10.jar'
+LIN_JAR = '/home/pi/MiniVNA/VNAJ/vnaJ-hl.3.2.10.jar'
 
 # Decoder defs
-WIN_EXPORT_PATH = 'C:\\Users\\User\\vnaJ.3.1\\export'
-LIN_EXPORT_PATH = '/home/pi/vnaJ.3.1/export'
+WIN_EXPORT_PATH = 'C:\\Users\\User\\VNAJ\\export'
+LIN_EXPORT_PATH = '/home/pi/VNAJ/export'
 DEC_FREQ = 0
 DEC_SWR = 4
 
