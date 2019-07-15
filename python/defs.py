@@ -35,7 +35,7 @@ CAL_FILE = 'REFL_miniVNA Tiny.cal'
 SCAN_MODE = 'REFL'
 EXPORTS = 'csv'
 WIN_JAR = 'E:\\Projects\\MiniVNA\\VNAJ\\vnaJ-hl.3.2.10.jar'
-LIN_JAR = '/home/pi/MiniVNA/VNAJ/vnaJ-hl.3.2.10.jar'
+LIN_JAR = '/home/pi/Projects/MiniVNA/VNAJ/vnaJ-hl.3.2.10.jar'
 
 # Decoder defs
 WIN_EXPORT_PATH = 'C:\\Users\\User\\VNAJ\\export'
