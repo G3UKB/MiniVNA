@@ -35,14 +35,14 @@ DRIVER_ID = 20  # MiniVNA Tiny
 DRIVER_PORT = 'ttyUSB0'
 
 # Scanner defs
-CAL_FILE = '/home/pi/vnaJ.3.2/calibration/REFL_miniVNA Tiny.cal'
+CAL_FILE = '/home/pi/vnaJ.3.3/calibration/REFL_miniVNA Tiny.cal'
 SCAN_MODE = 'REFL'
 EXPORTS = 'csv'
 EXPORT_FILENAME = 'VNA_{0,date,yyMMdd}_{0,time,HHmmss}'
-JAR = '/home/pi/Projects/MiniVNA/VNAJ/vnaJ-hl.3.2.10.jar'
+JAR = '/home/pi/Projects/MiniVNA/VNAJ/vnaJ-hl.3.3.3.jar'
 
 # Decoder defs
-EXPORT_PATH = '/home/pi/vnaJ.3.2/export'
+EXPORT_PATH = '/home/pi/vnaJ.3.3/export'
 DEC_FREQ = 0
 DEC_SWR = 4
 
